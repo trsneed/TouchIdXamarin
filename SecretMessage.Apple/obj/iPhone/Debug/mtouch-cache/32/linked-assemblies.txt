@@ -1,4 +1,0 @@
-/Users/timsneed/github/SecretMessage/SecretMessage.Apple/obj/iPhone/Debug/mtouch-cache/32/Link/System.dll
-/Users/timsneed/github/SecretMessage/SecretMessage.Apple/obj/iPhone/Debug/mtouch-cache/32/Link/mscorlib.dll
-/Users/timsneed/github/SecretMessage/SecretMessage.Apple/obj/iPhone/Debug/mtouch-cache/32/Link/Xamarin.iOS.dll
-/Users/timsneed/github/SecretMessage/SecretMessage.Apple/obj/iPhone/Debug/mtouch-cache/32/Link/SecretMessageApple.exe
