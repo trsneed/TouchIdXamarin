@@ -43,14 +43,23 @@ namespace SecretMessage.Apple
                         messageLbl.Hidden = false;
                     }
                 }
+                    else
+                    {
+                        ShowUnauthorizedAlert();
+                    }
                 }
                 catch(NSErrorException ex)
                 {
-                    var alert = new UIAlertView("Not Allowed", "You Arent Authorized For This",
-                        null, "OK", null);
-                    alert.Show();
+                    ShowUnauthorizedAlert();
                 }
             };
+        }
+
+        private void ShowUnauthorizedAlert()
+        {
+            var alert = new UIAlertView("Not Allowed", "You Arent Authorized For This",
+                null, "OK", null);
+            alert.Show();
         }
 
         public override void ViewWillAppear(bool animated)
