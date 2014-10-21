@@ -48,11 +48,13 @@ namespace SecretMessage.Apple
                         ShowUnauthorizedAlert();
                     }
                 }
-                catch(NSErrorException ex)
+                catch(NSErrorException)
                 {
                     ShowUnauthorizedAlert();
                 }
             };
+
+
         }
 
         private void ShowUnauthorizedAlert()
