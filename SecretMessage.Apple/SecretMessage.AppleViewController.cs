@@ -35,34 +35,25 @@ namespace SecretMessage.Apple
                 var error = new NSError();
                 try
                 {
-
-                    if (context.CanEvaluatePolicy(LAPolicy.DeviceOwnerAuthenticationWithBiometrics, out error))
-                {
-
-                        var authenticated = await context.EvaluatePolicyAsync(LAPolicy.DeviceOwnerAuthenticationWithBiometrics, 
-                            "Authenticate to see secret message");
+                    var authenticated = await context.EvaluatePolicyAsync(LAPolicy.DeviceOwnerAuthenticationWithBiometrics, 
+                                                "Authenticate to see secret message");
                     if (authenticated)
                     {
                         messageLbl.Hidden = false;
                     }
                 }
-                    else
-                    {
-                        ShowUnauthorizedAlert();
-                    }
-                }
-                catch(NSErrorException)
+                catch (NSErrorException ex)
                 {
-                    ShowUnauthorizedAlert();
+                    var reason = Convert.ToInt16(ex.Code);// as LAStatus;
+                    var status = (LAStatus)reason;
+                    ShowUnauthorizedAlert(status.ToString());
                 }
             };
-
-
         }
 
-        private void ShowUnauthorizedAlert()
+        private void ShowUnauthorizedAlert(string reason)
         {
-            var alert = new UIAlertView("Not Allowed", "You Arent Authorized For This",
+            var alert = new UIAlertView("Not Allowed", string.Format("You Arent Authorized For This \n Reason: {0}", reason),
                 null, "OK", null);
             alert.Show();
         }
