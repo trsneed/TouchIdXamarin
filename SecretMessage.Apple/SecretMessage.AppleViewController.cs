@@ -30,13 +30,16 @@ namespace SecretMessage.Apple
             messageLbl.Hidden = true;
             revealButton.TouchUpInside += async(s, e) =>
             {
-                var ctxt = new LAContext();
+                var context = new LAContext();
+              
                 var error = new NSError();
                 try
                 {
-                if (ctxt.CanEvaluatePolicy(LAPolicy.DeviceOwnerAuthenticationWithBiometrics, out error))
+
+                    if (context.CanEvaluatePolicy(LAPolicy.DeviceOwnerAuthenticationWithBiometrics, out error))
                 {
-                    var authenticated = await ctxt.EvaluatePolicyAsync(LAPolicy.DeviceOwnerAuthenticationWithBiometrics, 
+
+                        var authenticated = await context.EvaluatePolicyAsync(LAPolicy.DeviceOwnerAuthenticationWithBiometrics, 
                             "Authenticate to see secret message");
                     if (authenticated)
                     {
