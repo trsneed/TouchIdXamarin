@@ -37,7 +37,7 @@ namespace SecretMessage.Apple
                 {
                     var authenticated = await context.EvaluatePolicyAsync(LAPolicy.DeviceOwnerAuthenticationWithBiometrics, 
                                                 "Authenticate to see secret message");
-                    if (authenticated)
+                    if (authenticated.Item1)
                     {
                         messageLbl.Hidden = false;
                     }
