@@ -31,8 +31,7 @@ namespace SecretMessage.Apple
             revealButton.TouchUpInside += async(s, e) =>
             {
                 var context = new LAContext();
-              
-                var error = new NSError();
+                 
                 try
                 {
                     var authenticated = await context.EvaluatePolicyAsync(LAPolicy.DeviceOwnerAuthenticationWithBiometrics, 
