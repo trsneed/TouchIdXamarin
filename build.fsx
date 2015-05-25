@@ -7,16 +7,16 @@ open Fake.XamarinHelper
 open System.Linq
 open System
 open System.IO
-//Target "common-build"(fun () ->
-    //RestorePackages "SecretMessage.sln"
+Target "common-build"(fun () ->
+    RestorePackages "SecretMessage.sln"
     //MSBuild "Dir/bin/Debug" "Build" [ (
     //"Configuration", "Debug"); ("Platform", "Any CPU"
     //) ] [ "SecretMessage.sln" ] \> ignore
-//)
+)
 
-//Target "common-tests"(fun () ->
-
-//)
+Target "common-tests"(fun () ->
+    RestorePackages "SecretMessage.sln"
+)
 
 Target "ios-build" (fun () ->
     RestorePackages "SecretMessage.sln"
